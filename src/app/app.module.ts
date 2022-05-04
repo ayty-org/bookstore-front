@@ -10,10 +10,10 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
-
-
+import { HomeComponent } from './views/home/home.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 
@@ -22,15 +22,17 @@ import { MatListModule } from '@angular/material/list';
     AppComponent,
     NavComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatCardModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
