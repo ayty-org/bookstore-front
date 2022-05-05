@@ -14,6 +14,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './views/home/home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ClientCrudComponent } from './views/client-crud/client-crud.component';
+import { BookCrudComponent } from './views/book-crud/book-crud.component';
+import { PurchaseCrudComponent } from './views/purchase-crud/purchase-crud.component';
 
 
 
@@ -23,7 +26,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     NavComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ClientCrudComponent,
+    BookCrudComponent,
+    PurchaseCrudComponent
   ],
   imports: [
     BrowserModule,
