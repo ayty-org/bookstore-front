@@ -17,6 +17,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ClientCrudComponent } from './views/client-crud/client-crud.component';
 import { BookCrudComponent } from './views/book-crud/book-crud.component';
 import { PurchaseCrudComponent } from './views/purchase-crud/purchase-crud.component';
+import { ClientCreateComponent } from './components/clients/client-create/client-create.component';
+import { BookCreateComponent } from './components/books/book-create/book-create.component';
+import { PurchaseCreateComponent } from './components/purchases/purchase-create/purchase-create.component';
 
 
 
@@ -29,7 +32,10 @@ import { PurchaseCrudComponent } from './views/purchase-crud/purchase-crud.compo
     HomeComponent,
     ClientCrudComponent,
     BookCrudComponent,
-    PurchaseCrudComponent
+    PurchaseCrudComponent,
+    ClientCreateComponent,
+    BookCreateComponent,
+    PurchaseCreateComponent
   ],
   imports: [
     BrowserModule,
