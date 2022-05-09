@@ -20,6 +20,8 @@ import { PurchaseCrudComponent } from './views/purchase-crud/purchase-crud.compo
 import { ClientCreateComponent } from './components/clients/client-create/client-create.component';
 import { BookCreateComponent } from './components/books/book-create/book-create.component';
 import { PurchaseCreateComponent } from './components/purchases/purchase-create/purchase-create.component';
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 
@@ -44,7 +46,8 @@ import { PurchaseCreateComponent } from './components/purchases/purchase-create/
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
