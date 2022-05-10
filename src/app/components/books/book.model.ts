@@ -1,7 +1,7 @@
 import { Category } from "./category.model";
 
 export interface Book {
-    uuid: string,
+    uuid?: string,
     title: string,
     synopsis: string,
     isbn: string,

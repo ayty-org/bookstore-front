@@ -21,6 +21,8 @@ import { ClientCreateComponent } from './components/clients/client-create/client
 import { BookCreateComponent } from './components/books/book-create/book-create.component';
 import { PurchaseCreateComponent } from './components/purchases/purchase-create/purchase-create.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 
@@ -47,7 +49,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatListModule,
     MatCardModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
