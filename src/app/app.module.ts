@@ -23,6 +23,9 @@ import { PurchaseCreateComponent } from './components/purchases/purchase-create/
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -52,7 +55,10 @@ import { HttpClientModule } from '@angular/common/http'
     MatToolbarModule,
     MatButtonModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,15 +10,15 @@ import { BookToSend } from '../bookToSend.model';
 })
 export class BookCreateComponent implements OnInit {
 
-  private bookToSend: BookToSend = {
-    title: 'Jaburaca the book ',
-    synopsis: 'grande jaburasca',
+  book: BookToSend = {
+    title: '',
+    synopsis: '',
     isbn: '9788533302273',
-    publicationYear: new Date(),
-    price: 50.50,
-    quantityInStock: 3,
-    authorName: 'Xerlong',
-    categories: [1,2,3,4]
+    publicationYear: null,
+    price: null,
+    quantityInStock: null,
+    authorName: '',
+    categories: []
   }
 
   constructor(private router: Router, private bookService: BookService) { }
@@ -27,7 +27,7 @@ export class BookCreateComponent implements OnInit {
   }
 
   createBook(): void {
-    this.bookService.createBook(this.bookToSend).subscribe(()=>{
+    this.bookService.createBook(this.book).subscribe(()=>{
       this.bookService.showMessage('Book salvo com sucesso!');
     });
   }

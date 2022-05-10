@@ -11,11 +11,11 @@ import { ClientService } from '../client.service';
 export class ClientCreateComponent implements OnInit {
 
   client: Client = {
-    name: 'Cliente de teste', 
-    age: 25,
-    telephone: '83996438691',
-    email: 'teste@teste.com',
-    gender: 'Female'
+    name: '', 
+    age: null,
+    telephone: '',
+    email: '',
+    gender: ''
   };
 
   constructor(private router: Router, private clientService: ClientService) { }

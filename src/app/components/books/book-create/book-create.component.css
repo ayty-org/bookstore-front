@@ -1,5 +1,7 @@
 button{
-    color: white
+    color: white;
+    margin-right: 10px;
+    margin-top: 20px;
 }
 
 .save{
@@ -7,4 +9,12 @@ button{
 }
 .cancel{
     background-color: #383838
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+fieldset{
+    display: flex;
 }

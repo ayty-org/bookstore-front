@@ -1,7 +1,7 @@
 export interface Client {
     uuid?: string,
     name: string, 
-    age: number,
+    age: number | null,
     telephone: string,
     email: string,
     gender: string

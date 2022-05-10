@@ -1,8 +1,37 @@
-<button mat-raised-button (click)="createClient()" class="save">
-    Salvar
-</button>
+<mat-card>
+    <mat-card-title>Novo Cliente</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome" 
+                [(ngModel)]="client.name" name="name">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Idade"
+                [(ngModel)]="client.age" name="age" type="number">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Telefone"
+                [(ngModel)]="client.telephone" name="telephone">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="E-mail"
+                [(ngModel)]="client.email" name="email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Gênero"
+                [(ngModel)]="client.gender" name="gender">
+        </mat-form-field>
+        
+    </form>
+    <button mat-raised-button (click)="createClient()" class="save">
+        Salvar
+    </button>
+    
+    <button mat-raised-button (click)="cancel()" class="cancel">
+        Cancelar
+    </button>
+</mat-card>
 
-<button mat-raised-button (click)="cancel()" class="cancel">
-    Cancelar
-</button>
+
+
 

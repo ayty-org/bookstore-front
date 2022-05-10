@@ -4,9 +4,9 @@ export interface BookToSend {
     title: string,
     synopsis: string,
     isbn: string,
-    publicationYear: Date,
-    price: number,
-    quantityInStock: number,
+    publicationYear: Date | null,
+    price: number | null,
+    quantityInStock: number | null,
     authorName: string,
     categories: number[]
 }
