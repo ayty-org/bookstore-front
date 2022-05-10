@@ -22,6 +22,7 @@ import { BookCreateComponent } from './components/books/book-create/book-create.
 import { PurchaseCreateComponent } from './components/purchases/purchase-create/purchase-create.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http'
 
 
 
@@ -50,7 +51,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     MatCardModule,
     MatToolbarModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

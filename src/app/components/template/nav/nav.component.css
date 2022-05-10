@@ -7,7 +7,6 @@
     color: #FFF;
     padding-top: 10px;
 }
-.sidenav 
 
 .sidenav i{
     padding-right: 10px;
@@ -20,5 +19,5 @@
 
 .sidenav .icone{
     height: 50px;;
-    font-size: 23px;
+    font-size: 15px;
 }
