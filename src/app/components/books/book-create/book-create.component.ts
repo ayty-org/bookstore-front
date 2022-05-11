@@ -27,9 +27,17 @@ export class BookCreateComponent implements OnInit {
   }
 
   createBook(): void {
+    var categoriesCheckbox: NodeList = document.getElementsByName('categories');
+    categoriesCheckbox.forEach(input =>{
+      if((input as HTMLInputElement).checked){
+        this.book.categories.push(Number((input as HTMLInputElement).value));
+      }
+    })
+
     this.bookService.createBook(this.book).subscribe(()=>{
       this.bookService.showMessage('Book salvo com sucesso!');
     });
+    this.book.categories = [];
   }
 
   cancel(): void {

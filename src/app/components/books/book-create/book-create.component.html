@@ -1,4 +1,5 @@
-<mat-card>
+
+<mat-card class="container">
     <mat-card-title>Novo Cliente</mat-card-title>
     <form>
         <mat-form-field>
@@ -31,34 +32,36 @@
         </mat-form-field>
         <fieldset>
             <legend>Selecione as categorias do livro:</legend>
-            <input type="checkbox" name="categories" id="category1" value="1">
+            <input type="checkbox" name="categories" id="category1" value=1>
             <label for="category1">Romance</label>
-            <input type="checkbox" name="categories" id="category1" value="2">
-            <label for="category1">Ação</label>
-            <input type="checkbox" name="categories" id="category1" value="3">
-            <label for="category1">Fantasia</label>
-            <input type="checkbox" name="categories" id="category1" value="4">
-            <label for="category1">Ficção</label>
-            <input type="checkbox" name="categories" id="category1" value="5">
-            <label for="category1">Terror</label>
-            <input type="checkbox" name="categories" id="category1" value="6">
-            <label for="category1">Comédia</label>
-            <input type="checkbox" name="categories" id="category1" value="7">
-            <label for="category1">Comédia Romântica</label>
-            <input type="checkbox" name="categories" id="category1" value="8">
-            <label for="category1">Ficção Científica</label>
-            <input type="checkbox" name="categories" id="category1" value="9">
-            <label for="category1">Aventura</label>
-            <input type="checkbox" name="categories" id="category1" value="10">
-            <label for="category1">Drama</label>
+            <input type="checkbox" name="categories" id="category2" value=2>
+            <label for="category2">Ação</label>
+            <input type="checkbox" name="categories" id="category3" value=3>
+            <label for="category3">Fantasia</label>
+            <input type="checkbox" name="categories" id="category4" value=4>
+            <label for="category4">Ficção</label>
+            <input type="checkbox" name="categories" id="category5" value=5>
+            <label for="category5">Terror</label>
+            <input type="checkbox" name="categories" id="category6" value=6>
+            <label for="category6">Comédia</label>
+            <input type="checkbox" name="categories" id="category7" value=7>
+            <label for="category7">Comédia Romântica</label>
+            <input type="checkbox" name="categories" id="category8" value=8>
+            <label for="category8">Ficção Científica</label>
+            <input type="checkbox" name="categories" id="category1" value=9>
+            <label for="category9">Aventura</label>
+            <input type="checkbox" name="categories" id="category1" value=10>
+            <label for="category10">Drama</label>
         </fieldset>
     </form>
-    <button mat-raised-button (click)="createBook()" class="save">
-        Salvar
-    </button>
-    <button mat-raised-button (click)="cancel()" class="cancel">
-        Cancelar
-    </button>
+    <div class="contentButton">
+        <button mat-raised-button (click)="createBook()" class="save">
+            Salvar
+        </button>
+        <button mat-raised-button (click)="cancel()" class="cancel">
+            Cancelar
+        </button>
+    </div>
 </mat-card>
 
 

@@ -2,7 +2,14 @@ button{
     color: white;
     margin-right: 10px;
     margin-top: 20px;
+    width: 100px
 }
+
+.contentButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
 
 .save{
     background-color: #e71837;

@@ -2,13 +2,20 @@ button{
     color: white;
     margin-right: 10px;
     margin-top: 20px;
+    width: 100px
+}
+
+.contentButton {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .save{
     background-color: #e71837;
 }
 .cancel{
-    background-color: #383838
+    background-color: #383838;
+    justify-content: center !important;
 }
 
 form{
@@ -17,4 +24,14 @@ form{
 }
 fieldset{
     display: flex;
+}
+legend{
+    font-weight: bold;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    max-height: 70vh;
+    overflow-y: scroll ;
+    overflow-x: hidden;
 }
