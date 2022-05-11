@@ -26,6 +26,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ClientReadComponent } from './components/clients/client-read/client-read.component';
+import { BookReadComponent } from './components/books/book-read/book-read.component';
 
 
 
@@ -43,7 +45,9 @@ import { MatInputModule } from '@angular/material/input';
     PurchaseCrudComponent,
     ClientCreateComponent,
     BookCreateComponent,
-    PurchaseCreateComponent
+    PurchaseCreateComponent,
+    ClientReadComponent,
+    BookReadComponent
   ],
   imports: [
     BrowserModule,
