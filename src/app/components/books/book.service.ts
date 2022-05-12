@@ -24,7 +24,11 @@ export class BookService {
   }
 
 
-  createBook(book: BookToSend): Observable<Book>{
+  create(book: BookToSend): Observable<Book>{
     return this.http.post<Book>(this.url, book);
+  }
+
+  read(): Observable<Book[]>{
+    return this.http.get<Book[]>(this.url);
   }
 }

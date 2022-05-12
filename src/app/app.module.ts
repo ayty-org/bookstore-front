@@ -28,6 +28,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ClientReadComponent } from './components/clients/client-read/client-read.component';
 import { BookReadComponent } from './components/books/book-read/book-read.component';
+import { PurchaseReadComponent } from './components/purchases/purchase-read/purchase-read.component';
 
 
 
@@ -47,7 +48,8 @@ import { BookReadComponent } from './components/books/book-read/book-read.compon
     BookCreateComponent,
     PurchaseCreateComponent,
     ClientReadComponent,
-    BookReadComponent
+    BookReadComponent,
+    PurchaseReadComponent
   ],
   imports: [
     BrowserModule,

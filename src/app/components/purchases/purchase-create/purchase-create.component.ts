@@ -23,7 +23,7 @@ export class PurchaseCreateComponent implements OnInit {
   }
 
   createPurchase(): void {
-    this.purchaseService.createPurchase(this.purchaseToSend).subscribe(()=>{
+    this.purchaseService.create(this.purchaseToSend).subscribe(()=>{
       this.purchaseService.showMessage('Purchase salvo com sucesso!');
     });
   }

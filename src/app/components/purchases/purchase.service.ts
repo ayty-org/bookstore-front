@@ -23,7 +23,11 @@ export class PurchaseService {
     });
   }
 
-  createPurchase(purchase: PurchaseToSend): Observable<Purchase>{
+  create(purchase: PurchaseToSend): Observable<Purchase>{
     return this.http.post<Purchase>(this.url, purchase);
+  }
+
+  read(): Observable<Purchase[]>{
+    return this.http.get<Purchase[]>(this.url);
   }
 }
