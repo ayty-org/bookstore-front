@@ -1,1 +1,14 @@
-<p>client-read works!</p>
+<div class="container">
+<ul>
+    <li *ngFor="let client of clients">
+        <p>{{client.uuid}}</p>
+        <p>{{client.name}}</p>
+        <p>{{client.age}}</p>
+        <p>{{client.telephone}}</p>
+        <p>{{client.email}}</p>
+        <p>{{client.gender}}</p>
+        <p>END</p>
+
+    </li>
+</ul>
+</div>
