@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 
@@ -29,8 +29,11 @@ import { MatInputModule } from '@angular/material/input';
 import { ClientReadComponent } from './components/clients/client-read/client-read.component';
 import { BookReadComponent } from './components/books/book-read/book-read.component';
 import { PurchaseReadComponent } from './components/purchases/purchase-read/purchase-read.component';
+import { MatTableModule } from '@angular/material/table';
+import localePt from '@angular/common/locales/pt';
+import  { registerLocaleData } from '@angular/common';
 
-
+registerLocaleData(localePt);
 
 
 
@@ -64,9 +67,14 @@ import { PurchaseReadComponent } from './components/purchases/purchase-read/purc
     HttpClientModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
+
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'pt-BR'
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
