@@ -10,6 +10,7 @@ import { PurchaseService } from '../purchase.service';
 export class PurchaseReadComponent implements OnInit {
 
   purchases: Purchase[];
+  displayedColumns = ['clientName', 'clientEmail', 'booksQuantity', 'amount', 'purchaseDate'];
 
   constructor(private purchaseService: PurchaseService) { }
 
@@ -18,6 +19,10 @@ export class PurchaseReadComponent implements OnInit {
       this.purchases = purchases;
       console.log(purchases);
     })
+  }
+
+  getBooksQuantity(purchase: Purchase): number{
+    return purchase.bookDTOS.length;
   }
 
 }

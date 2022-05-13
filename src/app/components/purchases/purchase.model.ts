@@ -3,9 +3,9 @@ import { Client } from "../clients/client.model";
 
 export interface Purchase {
     uuid?: string,
-    client: Client,
-    books: Book[],
-    amout: number,
+    clientDTO: Client,
+    bookDTOS: Book[],
+    amount: number,
     purchaseDate: Date,
     isCompleted: boolean
 }
