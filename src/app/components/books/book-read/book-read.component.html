@@ -28,7 +28,7 @@
 
         <ng-container matColumnDef="categories">
             <th mat-header-cell *matHeaderCellDef>Categorias</th>
-            <td *matCellDef="let row"><p *ngFor="let category of row.categories">{{category.name}}</p></td>
+            <td *matCellDef="let row"><span *ngFor="let category of row.categories">{{'['+category.name +']'}}</span></td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
