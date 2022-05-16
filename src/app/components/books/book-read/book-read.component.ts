@@ -11,15 +11,12 @@ export class BookReadComponent implements OnInit {
 
   books: Book[];
   displayedColumns = ['title', 'isbn', 'quantityInStock', 'authorName', 'price', 'categories' ];
-  
-
 
   constructor(private bookService: BookService) { }
 
   ngOnInit(): void {
     this.bookService.read().subscribe(books =>{
       this.books = books;
-      console.log(books);
     })
   }
 

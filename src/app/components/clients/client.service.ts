@@ -30,4 +30,12 @@ export class ClientService {
   read(): Observable<Client[]>{
     return this.http.get<Client[]>(this.url);
   }
+
+  readByUuid(uuid: string): Observable<Client>{
+    return this.http.get<Client>(this.url+"/"+uuid);
+  }
+
+  update(client: Client): Observable<Client>{
+    return this.http.put<Client>(this.url+"/"+client.uuid, client);
+  }
 }

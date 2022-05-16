@@ -17,7 +17,6 @@ export class PurchaseReadComponent implements OnInit {
   ngOnInit(): void {
     this.purchaseService.read().subscribe(purchases=>{
       this.purchases = purchases;
-      console.log(purchases);
     })
   }
 

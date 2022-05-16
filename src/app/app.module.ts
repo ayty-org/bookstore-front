@@ -52,7 +52,7 @@ registerLocaleData(localePt);
     PurchaseCreateComponent,
     ClientReadComponent,
     BookReadComponent,
-    PurchaseReadComponent
+    PurchaseReadComponent,
   ],
   imports: [
     BrowserModule,
