@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Book } from '../../books/book.model';
+import { BookService } from '../../books/book.service';
+import { Client } from '../../clients/client.model';
+import { ClientService } from '../../clients/client.service';
 import { PurchaseService } from '../purchase.service';
 import { PurchaseToSend } from '../purchaseToSend.model';
 
@@ -11,28 +15,58 @@ import { PurchaseToSend } from '../purchaseToSend.model';
 export class PurchaseCreateComponent implements OnInit {
 
 
-  private purchaseToSend: PurchaseToSend = {
-    clientUuid: 'f049aa80-3359-4aff-831d-a23b9cb3d9cc',
-    booksUuid: ['90c51bd3-875d-47ca-ba6e-d500c150549c', 'da215870-3042-48cb-b7bc-07132ff67fd2'],
+  purchaseToSend: PurchaseToSend = {
+    clientUuid: '',
+    booksUuid: [],
     isCompleted: true
   }
 
-  constructor(private router: Router, private purchaseService: PurchaseService) { }
+  booksSaved: Book[];
+  clientsSaved: Client[];
+
+  constructor(private router: Router, private purchaseService: PurchaseService
+    , private bookService: BookService, private clientService: ClientService) { }
 
   ngOnInit(): void {
+    this.bookService.read().subscribe(books=> this.booksSaved=books);
+    this.clientService.read().subscribe(clients=> this.clientsSaved=clients);
   }
 
   createPurchase(): void {
+    var clientsRadio: NodeList = document.getElementsByName('clientsRadio');
+    clientsRadio.forEach(radio =>{
+      if((<HTMLInputElement>radio).checked){
+        this.purchaseToSend.clientUuid = (<HTMLInputElement>radio).value;
+      }
+    })
+
+    var booksCheckbox: NodeList = document.getElementsByName('booksCheckbox');
+    booksCheckbox.forEach(checkbox =>{
+      if((<HTMLInputElement>checkbox).checked){
+        var uuid = (<HTMLInputElement>checkbox).value;
+        var quantity: number = Number((<HTMLInputElement>document.getElementById(uuid)).value);
+        for(var k=0; k<quantity; k++){
+          console.log('entrou!')
+          this.purchaseToSend.booksUuid.push(uuid);
+        }
+      }
+    });
+
     this.purchaseService.create(this.purchaseToSend).subscribe(()=>{
       this.purchaseService.showMessage('Purchase salvo com sucesso!');
     });
+
+    this.purchaseToSend.clientUuid = '';
+    this.purchaseToSend.booksUuid = [];
+    this.navigateToPurchases();
   }
 
   cancel(): void {
-    this.navigateToClients();
+    this.navigateToPurchases();
   }
 
-  navigateToClients(): void{
-    this.router.navigateByUrl("/clients");
+
+  navigateToPurchases(): void{
+    this.router.navigateByUrl("/purchases");
   }
 }
