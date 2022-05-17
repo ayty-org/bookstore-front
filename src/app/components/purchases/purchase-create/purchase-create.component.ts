@@ -53,7 +53,7 @@ export class PurchaseCreateComponent implements OnInit {
     });
 
     this.purchaseService.create(this.purchaseToSend).subscribe(()=>{
-      this.purchaseService.showMessage('Purchase salvo com sucesso!');
+      this.purchaseService.showMessage('Compra salva com sucesso!');
     });
 
     this.purchaseToSend.clientUuid = '';

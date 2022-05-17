@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookCreateComponent } from './components/books/book-create/book-create.component';
 import { ClientCreateComponent } from './components/clients/client-create/client-create.component';
+import { ClientUpdateComponent } from './components/clients/client-update/client-update.component';
 import { PurchaseCreateComponent } from './components/purchases/purchase-create/purchase-create.component';
 import { BookCrudComponent } from './views/book-crud/book-crud.component';
 import { ClientCrudComponent } from './views/client-crud/client-crud.component';
@@ -22,6 +23,10 @@ const routes: Routes = [
     component: ClientCreateComponent
   },
   {
+    path:"clients/update/:uuid",
+    component: ClientUpdateComponent
+  },
+  {
     path:"books",
     component: BookCrudComponent
   },
@@ -37,6 +42,7 @@ const routes: Routes = [
     path:"purchases/create",
     component: PurchaseCreateComponent
   },
+  
 
 
 ];

@@ -10,7 +10,6 @@ import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './views/home/home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -32,6 +31,8 @@ import { PurchaseReadComponent } from './components/purchases/purchase-read/purc
 import { MatTableModule } from '@angular/material/table';
 import localePt from '@angular/common/locales/pt';
 import  { registerLocaleData } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { ClientUpdateComponent } from './components/clients/client-update/client-update.component';
 
 registerLocaleData(localePt);
 
@@ -53,6 +54,7 @@ registerLocaleData(localePt);
     ClientReadComponent,
     BookReadComponent,
     PurchaseReadComponent,
+    ClientUpdateComponent
   ],
   imports: [
     BrowserModule,
