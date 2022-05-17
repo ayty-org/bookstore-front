@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookCreateComponent } from './components/books/book-create/book-create.component';
+import { BookUpdateComponent } from './components/books/book-update/book-update.component';
 import { ClientCreateComponent } from './components/clients/client-create/client-create.component';
 import { ClientUpdateComponent } from './components/clients/client-update/client-update.component';
 import { PurchaseCreateComponent } from './components/purchases/purchase-create/purchase-create.component';
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path:"books/create",
     component: BookCreateComponent
+  },
+  {
+    path:"books/update/:uuid",
+    component: BookUpdateComponent
   },
   {
     path:"purchases",

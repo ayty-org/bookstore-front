@@ -32,7 +32,7 @@ export class BookCreateComponent implements OnInit {
       if((<HTMLInputElement>input).checked){
         this.book.categories.push(Number((<HTMLInputElement>input).value));
       }
-    })
+    });
     this.bookService.create(this.book).subscribe(()=>{
       this.bookService.showMessage('Book salvo com sucesso!');
     });

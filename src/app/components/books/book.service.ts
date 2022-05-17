@@ -31,4 +31,12 @@ export class BookService {
   read(): Observable<Book[]>{
     return this.http.get<Book[]>(this.url);
   }
+
+  readByUuid(uuid: string): Observable<Book>{
+    return this.http.get<Book>(`${this.url}/${uuid}`);
+  }
+
+  update(book: BookToSend): Observable<Book>{
+    return this.http.put<Book>(`${this.url}/${book.uuid}`, book);
+  }
 }
