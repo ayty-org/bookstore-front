@@ -38,7 +38,7 @@ export class PurchaseCreateComponent implements OnInit {
       if((<HTMLInputElement>radio).checked){
         this.purchaseToSend.clientUuid = (<HTMLInputElement>radio).value;
       }
-    })
+    });
 
     var booksCheckbox: NodeList = document.getElementsByName('booksCheckbox');
     booksCheckbox.forEach(checkbox =>{

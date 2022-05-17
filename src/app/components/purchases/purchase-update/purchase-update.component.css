@@ -1,0 +1,55 @@
+button{
+    color: white;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 100px
+}
+
+.contentButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.save{
+    background-color: #e71837;
+}
+
+.cancel{
+    background-color: #383838
+}
+
+input[type=radio] {
+    display: flex;
+    width: 30%;
+    height: 2em;
+}
+
+input[type=checkbox] {
+    display: flex;
+    width: 30%;
+    height: 2em;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    max-height: 70vh;
+    overflow-y: scroll ;
+    overflow-x: hidden;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    width: 250px;
+}
+
+.quantity{
+    height: 20px;
+    width: 40px;
+}
+
+.clients{
+    background-color: #a09696;
+}

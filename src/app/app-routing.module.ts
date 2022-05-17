@@ -5,6 +5,7 @@ import { BookUpdateComponent } from './components/books/book-update/book-update.
 import { ClientCreateComponent } from './components/clients/client-create/client-create.component';
 import { ClientUpdateComponent } from './components/clients/client-update/client-update.component';
 import { PurchaseCreateComponent } from './components/purchases/purchase-create/purchase-create.component';
+import { PurchaseUpdateComponent } from './components/purchases/purchase-update/purchase-update.component';
 import { BookCrudComponent } from './views/book-crud/book-crud.component';
 import { ClientCrudComponent } from './views/client-crud/client-crud.component';
 import { HomeComponent } from './views/home/home.component';
@@ -47,7 +48,10 @@ const routes: Routes = [
     path:"purchases/create",
     component: PurchaseCreateComponent
   },
-  
+  {
+    path:"purchases/update/:uuid",
+    component: PurchaseUpdateComponent
+  },
 
 
 ];

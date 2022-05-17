@@ -10,7 +10,7 @@ import { PurchaseService } from '../purchase.service';
 export class PurchaseReadComponent implements OnInit {
 
   purchases: Purchase[];
-  displayedColumns = ['clientName', 'clientEmail', 'booksQuantity', 'amount', 'purchaseDate'];
+  displayedColumns = ['clientName', 'clientEmail', 'booksQuantity', 'amount', 'purchaseDate', 'action'];
 
   constructor(private purchaseService: PurchaseService) { }
 

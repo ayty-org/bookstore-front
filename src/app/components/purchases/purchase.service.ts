@@ -30,4 +30,12 @@ export class PurchaseService {
   read(): Observable<Purchase[]>{
     return this.http.get<Purchase[]>(this.url);
   }
+
+  readByUuid(uuid: string): Observable<Purchase>{
+    return this.http.get<Purchase>(`${this.url}/${uuid}`);
+  }
+
+  update(purchase: PurchaseToSend): Observable<Purchase>{
+    return this.http.put<Purchase>(`${this.url}/${purchase.uuid}`, purchase);
+  }
 }

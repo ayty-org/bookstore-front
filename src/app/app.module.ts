@@ -34,6 +34,7 @@ import  { registerLocaleData } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { ClientUpdateComponent } from './components/clients/client-update/client-update.component';
 import { BookUpdateComponent } from './components/books/book-update/book-update.component';
+import { PurchaseUpdateComponent } from './components/purchases/purchase-update/purchase-update.component';
 
 registerLocaleData(localePt);
 
@@ -56,7 +57,8 @@ registerLocaleData(localePt);
     BookReadComponent,
     PurchaseReadComponent,
     ClientUpdateComponent,
-    BookUpdateComponent
+    BookUpdateComponent,
+    PurchaseUpdateComponent
   ],
   imports: [
     BrowserModule,

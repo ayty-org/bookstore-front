@@ -1,0 +1,36 @@
+<mat-card class="container">
+    <mat-card-title>Atualizar Compra</mat-card-title>
+    <form> 
+        <h3> Selecione o cliente: </h3>
+        <fieldset *ngFor="let client of clientsSaved" class="inputs clients">
+            <input type="radio" id="{{client.uuid}}"
+                name="clientsRadio" value="{{client.uuid}}"> 
+                <span>{{'NOME: '+client.name}}</span>
+                <span>{{'EMAIL: '+client.email}}</span>
+                <span>{{'TELEFONE: '+client.telephone}}</span>
+        </fieldset>
+
+        <h3>Selecione os livros comprados:</h3>
+        <fieldset *ngFor="let book of booksSaved" class="inputs books">
+            <input type="checkbox" name="booksCheckbox" id="{{book.uuid}}" value={{book.uuid}}>
+            <span>{{'TITULO: '+book.title}}</span>
+            <span>{{'AUTOR: '+book.authorName}}</span>
+            QUANTIDADE
+            <input matInput type="number" class="quantity" id="quantity{{book.uuid}}" [defaultValue]=1> 
+        </fieldset>
+    
+    </form>
+    <div class="contentButton">
+        <button mat-raised-button (click)="updatePurchase()" class="save">
+            Salvar
+        </button>
+    
+        <button mat-raised-button (click)="cancel()" class="cancel">
+            Cancelar
+        </button>
+    </div>
+</mat-card>
+
+
+
+

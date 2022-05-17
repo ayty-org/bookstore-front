@@ -5,3 +5,10 @@
     overflow-y: scroll ;
     overflow-x: hidden;
 }
+
+i.delete{
+    color: #e71837;
+}
+i.edit{
+    color: #383838
+}
