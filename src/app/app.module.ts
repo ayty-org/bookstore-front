@@ -35,6 +35,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ClientUpdateComponent } from './components/clients/client-update/client-update.component';
 import { BookUpdateComponent } from './components/books/book-update/book-update.component';
 import { PurchaseUpdateComponent } from './components/purchases/purchase-update/purchase-update.component';
+import { PurchaseReadUniqueComponent } from './components/purchases/purchase-read/purchase-read-unique/purchase-read-unique.component';
 
 registerLocaleData(localePt);
 
@@ -58,7 +59,8 @@ registerLocaleData(localePt);
     PurchaseReadComponent,
     ClientUpdateComponent,
     BookUpdateComponent,
-    PurchaseUpdateComponent
+    PurchaseUpdateComponent,
+    PurchaseReadUniqueComponent
   ],
   imports: [
     BrowserModule,

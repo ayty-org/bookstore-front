@@ -1,0 +1,75 @@
+<mat-card class="container">
+    <mat-card-title>Compra realizada:</mat-card-title>
+    <form> 
+        <h2> Cliente da compra: </h2>
+        <mat-form-field>
+            <input matInput placeholder="Nome" 
+                [(ngModel)]="purchase.clientDTO.name" name="name">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Idade"
+                [(ngModel)]="purchase.clientDTO.age" name="age" type="number">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Telefone"
+                [(ngModel)]="purchase.clientDTO.telephone" name="telephone">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="E-mail"
+                [(ngModel)]="purchase.clientDTO.email" name="email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Gênero"
+                [(ngModel)]="purchase.clientDTO.gender" name="gender">
+        </mat-form-field>
+        
+        <h2>Livros comprados:</h2>
+        <fieldset *ngFor="let book of purchase.bookDTOS" class="containerBook">
+            <mat-form-field>
+                <input matInput placeholder="Título" 
+                    [(ngModel)]="book.title" name="title">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Sinopse"
+                    [(ngModel)]="book.synopsis" name="synopsis">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="ISBN"
+                    [(ngModel)]="book.isbn" name="isbn">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Ano de publicação"
+                    [(ngModel)]="book.publicationYear" name="publicationYear" id="{{book.uuid}}" type="date">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Preço"
+                    [(ngModel)]="book.price" name="price" type="number">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Quantidade em estoque"
+                    [(ngModel)]="book.quantityInStock" name="quantityInStock" type="number">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Nome do autor"
+                    [(ngModel)]="book.authorName" name="authorName">
+            </mat-form-field>
+            <fieldset>
+                <h3>Categorias:</h3>
+                <div *ngFor="let category of book.categories">
+                    <label >{{category.name}}</label>
+                </div>
+            </fieldset>
+    </fieldset>
+    
+    </form>
+    <div class="contentButton">
+
+        <button mat-raised-button (click)="backToPurchases()" class="cancel">
+            Voltar
+        </button>
+    </div>
+</mat-card>
+
+
+
+

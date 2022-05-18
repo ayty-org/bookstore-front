@@ -37,7 +37,7 @@ export class BookCreateComponent implements OnInit {
       this.bookService.showMessage('Book salvo com sucesso!');
     });
     this.book.categories = [];
-    this.navigateToBooks;
+    this.navigateToBooks();
   }
 
   cancel(): void {

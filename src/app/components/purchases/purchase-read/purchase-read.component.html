@@ -15,7 +15,7 @@
             <th mat-header-cell *matHeaderCellDef >Quantidade de livros</th>
             <td mat-cell *matCellDef="let row">
                 {{getBooksQuantity(row)}}
-                <a routerLink="purchase/books">
+                <a routerLink="/purchases/{{row.uuid}}">
                     <i class="material-icons">
                         toc
                     </i>

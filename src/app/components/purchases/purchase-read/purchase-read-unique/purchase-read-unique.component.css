@@ -1,0 +1,64 @@
+button{
+    color: white;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 100px
+}
+button{
+    color: white;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 100px
+}
+
+.contentButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.save{
+    background-color: #e71837;
+}
+.cancel{
+    background-color: #383838
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.contentButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.save{
+    background-color: #e71837;
+}
+
+.cancel{
+    background-color: #383838
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    max-height: 70vh;
+    overflow-y: scroll ;
+    overflow-x: hidden;
+}
+.containerBook{
+    display: flex;
+    flex-direction: column;
+}
+
+.quantity{
+    height: 20px;
+    width: 40px;
+}
+
+.clients{
+    background-color: #a09696;
+}
