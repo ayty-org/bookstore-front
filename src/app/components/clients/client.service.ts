@@ -38,4 +38,8 @@ export class ClientService {
   update(client: Client): Observable<Client>{
     return this.http.put<Client>(this.url+"/"+client.uuid, client);
   }
+
+  delete(uuid: string): Observable<Client>{
+    return this.http.delete<Client>(this.url+'/'+uuid);
+  }
 }

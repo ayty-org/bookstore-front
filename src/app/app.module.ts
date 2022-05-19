@@ -36,6 +36,9 @@ import { ClientUpdateComponent } from './components/clients/client-update/client
 import { BookUpdateComponent } from './components/books/book-update/book-update.component';
 import { PurchaseUpdateComponent } from './components/purchases/purchase-update/purchase-update.component';
 import { PurchaseReadUniqueComponent } from './components/purchases/purchase-read/purchase-read-unique/purchase-read-unique.component';
+import { ClientDeleteComponent } from './components/clients/client-delete/client-delete.component';
+import { BookDeleteComponent } from './components/books/book-delete/book-delete.component';
+import { PurchaseDeleteComponent } from './components/purchases/purchase-delete/purchase-delete.component';
 
 registerLocaleData(localePt);
 
@@ -60,7 +63,10 @@ registerLocaleData(localePt);
     ClientUpdateComponent,
     BookUpdateComponent,
     PurchaseUpdateComponent,
-    PurchaseReadUniqueComponent
+    PurchaseReadUniqueComponent,
+    ClientDeleteComponent,
+    BookDeleteComponent,
+    PurchaseDeleteComponent
   ],
   imports: [
     BrowserModule,

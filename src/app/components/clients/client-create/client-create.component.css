@@ -10,7 +10,9 @@ button{
     justify-content: flex-end;
 }
 
-
+input{
+    font-size: 20px;
+}
 .save{
     background-color: #e71837;
 }

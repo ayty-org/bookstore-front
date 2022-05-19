@@ -1,15 +1,14 @@
-import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Purchase } from '../../purchase.model';
-import { PurchaseService } from '../../purchase.service';
+import { Purchase } from '../purchase.model';
+import { PurchaseService } from '../purchase.service';
 
 @Component({
-  selector: 'app-purchase-read-unique',
-  templateUrl: './purchase-read-unique.component.html',
-  styleUrls: ['./purchase-read-unique.component.css']
+  selector: 'app-purchase-delete',
+  templateUrl: './purchase-delete.component.html',
+  styleUrls: ['./purchase-delete.component.css']
 })
-export class PurchaseReadUniqueComponent implements OnInit {
+export class PurchaseDeleteComponent implements OnInit {
 
   purchase: Purchase = {
     clientDTO: {
@@ -27,9 +26,8 @@ export class PurchaseReadUniqueComponent implements OnInit {
 
   constructor(private purchaseService: PurchaseService, private router: Router, private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    
 
+  ngOnInit(): void {
     const uuid: string = this.route.snapshot.paramMap.get('uuid') as string;
     this.purchaseService.readByUuid(uuid).subscribe(purchase => {
       this.purchase = purchase;
@@ -59,7 +57,18 @@ export class PurchaseReadUniqueComponent implements OnInit {
       });
   }
 
-  backToPurchases(): void{
+  deletePurchase(): void{
+    this.purchaseService.delete(this.purchase.uuid as string).subscribe(()=>{
+      this.purchaseService.showMessage('Compra excluída com sucesso!');
+      this.navigateToPurchases();
+    })
+  }
+
+  cancel(): void{
+    this.navigateToPurchases();
+  }
+
+  navigateToPurchases(): void{
     this.router.navigateByUrl('/purchases');
   }
 

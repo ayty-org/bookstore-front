@@ -4,6 +4,30 @@ button{
     margin-top: 20px;
     width: 100px
 }
+button{
+    color: white;
+    margin-right: 10px;
+    margin-top: 20px;
+    width: 100px
+}
+
+.contentButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.save{
+    background-color: #e71837;
+}
+.cancel{
+    background-color: #383838
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
 
 .contentButton {
     display: flex;
@@ -18,16 +42,8 @@ button{
     background-color: #383838
 }
 
-input[type=radio] {
-    display: flex;
-    width: 30%;
-    height: 2em;
-}
-
-input[type=checkbox] {
-    display: flex;
-    width: 30%;
-    height: 2em;
+.show{
+    background-color: black;
 }
 
 .container{
@@ -38,18 +54,21 @@ input[type=checkbox] {
     overflow-x: hidden;
 }
 
-.inputs{
+input{
+    font-weight: bold;
+}
+
+.containerEntity{
     display: flex;
-    flex-direction: column;
-    height: 150px;
-    width: 250px;
+    justify-items: left;
 }
 
 .quantity{
-    height: 20px;
-    width: 40px;
+    font-size: 20px;
+    margin-left: 30px;
+}
+.select{
+    width: 30px;
+    height: 30px;
 }
 
-.clients{
-    background-color: #a09696;
-}

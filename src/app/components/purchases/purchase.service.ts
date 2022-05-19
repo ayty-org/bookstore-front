@@ -38,4 +38,8 @@ export class PurchaseService {
   update(purchase: PurchaseToSend): Observable<Purchase>{
     return this.http.put<Purchase>(`${this.url}/${purchase.uuid}`, purchase);
   }
+
+  delete(uuid: string): Observable<Purchase>{
+    return this.http.delete<Purchase>(`${this.url}/${uuid}`);
+  }
 }

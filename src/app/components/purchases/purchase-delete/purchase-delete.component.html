@@ -69,9 +69,12 @@
     
     </form>
     <div class="contentButton">
-
-        <button mat-raised-button (click)="backToPurchases()" class="cancel">
-            Voltar
+        <button mat-raised-button (click)="deletePurchase()" class="save">
+            Excluir
+        </button>
+    
+        <button mat-raised-button (click)="cancel()" class="cancel">
+            Cancelar
         </button>
     </div>
 </mat-card>

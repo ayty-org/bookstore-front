@@ -33,32 +33,32 @@ export class PurchaseCreateComponent implements OnInit {
   }
 
   createPurchase(): void {
-    var clientsRadio: NodeList = document.getElementsByName('clientsRadio');
+    var clientsRadio: NodeList = document.getElementsByName('radioClients');
     clientsRadio.forEach(radio =>{
       if((<HTMLInputElement>radio).checked){
-        this.purchaseToSend.clientUuid = (<HTMLInputElement>radio).value;
+        this.purchaseToSend.clientUuid = (<HTMLInputElement>radio).id;
       }
     });
 
-    var booksCheckbox: NodeList = document.getElementsByName('booksCheckbox');
+    var booksCheckbox: NodeList = document.getElementsByName('bookCheckbox');
     booksCheckbox.forEach(checkbox =>{
       if((<HTMLInputElement>checkbox).checked){
-        var uuid = (<HTMLInputElement>checkbox).value;
-        var quantity: number = Number((<HTMLInputElement>document.getElementById(uuid)).value);
+        var uuid = (<HTMLInputElement>checkbox).id;
+        var quantity: number = Number((<HTMLInputElement>document.getElementById(uuid+'quantity')).value);
+        console.log((<HTMLInputElement>document.getElementById(uuid)))
         for(var k=0; k<quantity; k++){
-          console.log('entrou!')
           this.purchaseToSend.booksUuid.push(uuid);
         }
       }
     });
-
+    console.log(this.purchaseToSend)
     this.purchaseService.create(this.purchaseToSend).subscribe(()=>{
       this.purchaseService.showMessage('Compra salva com sucesso!');
-    });
+      this.navigateToPurchases();
 
+    });
     this.purchaseToSend.clientUuid = '';
     this.purchaseToSend.booksUuid = [];
-    this.navigateToPurchases();
   }
 
   cancel(): void {

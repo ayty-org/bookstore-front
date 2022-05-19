@@ -24,9 +24,7 @@ form{
     display: flex;
     flex-direction: column;
 }
-fieldset{
-    display: flex;
-}
+
 legend{
     font-weight: bold;
 }

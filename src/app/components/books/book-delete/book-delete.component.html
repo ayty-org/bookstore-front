@@ -1,0 +1,53 @@
+
+<mat-card class="container">
+    <mat-card-title>Excluir Livro</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Título" 
+                [(ngModel)]="book.title" name="title" disabled="true">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Sinopse"
+                [(ngModel)]="book.synopsis" name="synopsis" disabled="true">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="ISBN"
+                [(ngModel)]="book.isbn" name="isbn" disabled="true">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Data de publicação"
+                 id="date" type="date" disabled="true">
+
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Preço"
+                [(ngModel)]="book.price" name="price" type="number" disabled="true">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Quantidade em estoque"
+                [(ngModel)]="book.quantityInStock" name="quantityInStock" type="number" disabled="true">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Nome do autor"
+                [(ngModel)]="book.authorName" name="authorName" disabled="true">
+        </mat-form-field>
+        <fieldset>
+            <h3>Categorias:</h3>
+            <div *ngFor="let category of book.categories" disabled="true">
+                <label >{{category.name}}</label>
+            </div>
+        </fieldset>
+    </form>
+    <div class="contentButton">
+        <button mat-raised-button (click)="deleteBook()" class="save">
+            Excluir
+        </button>
+        <button mat-raised-button (click)="cancel()" class="cancel">
+            Cancelar
+        </button>
+    </div>
+</mat-card>
+
+
+
+
