@@ -57,10 +57,17 @@ export class ClientCreateComponent implements OnInit {
       return false;
     }
     var email: string = this.client.email;
-    if(email == '' || email.search('@') < 0 || email.search('.com') < 0 || email.indexOf('@') == 0 || email.split('@')[1].length < 5) {
+    if(email == '' || email.search('@') < 0 || email.search('.') < 0 || email.indexOf('@') == 0 || email.split('@')[1].length < 5) {
       this.clientService.showError('O campo email deve conter um email válido!');
       return false;
     }
+    var gender: string = this.client.gender;
+    if(gender == '' || gender.length < 4 || gender.length > 15){
+      this.clientService.showError('O campo gênero não pode estar vazio e deve conter entre 4 e 15 caracteres!');
+      return false;
+    }
+    
+    
     
     return true;
   }
