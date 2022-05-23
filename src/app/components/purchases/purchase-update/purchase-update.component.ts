@@ -28,7 +28,18 @@ export class PurchaseUpdateComponent implements OnInit {
     , private bookService: BookService, private clientService: ClientService, private route: ActivatedRoute) { }
   
     ngOnInit(): void {
-      this.bookService.read().subscribe(books=> this.booksSaved=books);
+      this.bookService.read().subscribe(books=> {
+        this.booksSaved=books;
+        books.forEach(book =>{
+          setTimeout(()=>{
+            var date: string[] = book.publicationYear.toString().split('T')[0].split('-');
+            var htmlDate: HTMLInputElement = (<HTMLInputElement>document.getElementById(book.uuid as string+'date'));
+            htmlDate.value = `${date[0]}-${date[1]}-${date[2]}`;
+          },1)
+          
+        });
+       
+      });
       this.clientService.read().subscribe(clients=> this.clientsSaved=clients);
 
       const uuid: string = this.route.snapshot.paramMap.get('uuid') as string;
@@ -42,7 +53,6 @@ export class PurchaseUpdateComponent implements OnInit {
 
         purchase.bookDTOS.forEach(bookDTO => {
           let checkbox: HTMLInputElement = <HTMLInputElement>document.getElementById(bookDTO.uuid as string);
-
           if(checkbox.checked){
             let quantity: HTMLInputElement = <HTMLInputElement>document.getElementById('quantity'+bookDTO.uuid as string);
             quantity.value = String((Number(quantity.value)+1));
