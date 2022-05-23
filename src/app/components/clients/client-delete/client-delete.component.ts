@@ -27,11 +27,12 @@ export class ClientDeleteComponent implements OnInit {
   }
 
   deleteClient(): void{
-    this.clientService.delete(this.client.uuid as string).subscribe(()=>{
-      this.clientService.showMessage('Cliente excluído com sucesso!');
-      this.navigateToClients();
-    })
-
+    if(this.canBeDeleted()){
+      this.clientService.delete(this.client.uuid as string).subscribe(()=>{
+        this.clientService.showMessage('Cliente excluído com sucesso!');
+        this.navigateToClients();
+      });
+    }
   }
 
   cancel(): void{
@@ -42,4 +43,14 @@ export class ClientDeleteComponent implements OnInit {
     this.router.navigateByUrl('/clients');
   }
 
+  canBeDeleted(): boolean{
+    var b: boolean = true;
+    this.clientService.existPurchaseWithClient(this.client.uuid as string).subscribe(exists => {
+      if(exists){
+        this.clientService.showError('Existe pelo menos uma compra com esse cliente, não é possível excluir!');
+        b = false;
+      }
+    })
+    return b;
+  }
 }

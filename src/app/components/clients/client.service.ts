@@ -18,7 +18,17 @@ export class ClientService {
     this.snackBar.open(msg, 'X',{
       duration: 3000,
       horizontalPosition: "right",
-      verticalPosition: "top"
+      verticalPosition: "top",
+      panelClass: ['msg-success']
+    });
+  }
+
+  showError(msg: string){
+    this.snackBar.open(msg, 'X',{
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+      panelClass: ['msg-error']
     });
   }
 
@@ -41,5 +51,9 @@ export class ClientService {
 
   delete(uuid: string): Observable<Client>{
     return this.http.delete<Client>(this.url+'/'+uuid);
+  }
+
+  existPurchaseWithClient(uuid: string): Observable<boolean>{
+    return this.http.get<boolean>('http://localhost:9191/v1/purchases/existByClient/'+uuid);
   }
 }

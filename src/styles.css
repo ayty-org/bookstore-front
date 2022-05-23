@@ -7,3 +7,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     position: relative;
     z-index: 2;
   }
+  form{
+    margin-top: 20px;
+  }
+
+  .msg-success{
+    background-color: #28a745;
+    color: white;
+  }
+  .msg-error{
+    background-color: #e71837;
+    color: white;
+
+  }
