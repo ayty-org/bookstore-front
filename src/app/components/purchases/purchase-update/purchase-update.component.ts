@@ -66,33 +66,53 @@ export class PurchaseUpdateComponent implements OnInit {
   updatePurchase(): void{
     this.purchaseToSend.clientUuid = '';
     this.purchaseToSend.booksUuid = [];
-    
-    var clientsRadio: NodeList = document.getElementsByName('clientsRadio');
+    var clientsRadio: NodeList = document.getElementsByName('radioClients');
+
+    var selectClient = false;
     clientsRadio.forEach(radio =>{
       if((<HTMLInputElement>radio).checked){
-        this.purchaseToSend.clientUuid = (<HTMLInputElement>radio).value;
+        this.purchaseToSend.clientUuid = (<HTMLInputElement>radio).id;
+        selectClient = true;
       }
     });
 
-    var booksCheckbox: NodeList = document.getElementsByName('booksCheckbox');
-    booksCheckbox.forEach(checkbox =>{
-      if((<HTMLInputElement>checkbox).checked){
-        var uuid = (<HTMLInputElement>checkbox).value;
-        var quantity: number = Number((<HTMLInputElement>document.getElementById('quantity'+uuid)).value);
-        for(var k=0; k<quantity; k++){
-          this.purchaseToSend.booksUuid.push(uuid);
+    if(selectClient){
+      var clientsRadio: NodeList = document.getElementsByName('radioClients');
+
+    var selectClient = false;
+    clientsRadio.forEach(radio =>{
+      if((<HTMLInputElement>radio).checked){
+        this.purchaseToSend.clientUuid = (<HTMLInputElement>radio).id;
+        selectClient = true;
+      }
+    });
+    if(selectClient == false){
+      this.purchaseService.showError('Um cliente deve ser selecionado!');
+    }else{
+      var booksCheckbox: NodeList = document.getElementsByName('bookCheckbox');
+      booksCheckbox.forEach(checkbox =>{
+        if((<HTMLInputElement>checkbox).checked){
+          var uuid = (<HTMLInputElement>checkbox).id;
+          var quantity: number = Number((<HTMLInputElement>document.getElementById('quantity'+uuid)).value);
+          for(var k=0; k<quantity; k++){
+            this.purchaseToSend.booksUuid.push(uuid);
+          }
         }
-      }
-    });
-
-    this.purchaseService.update(this.purchaseToSend).subscribe(()=>{
-      this.purchaseService.showMessage('Compra atualizada com sucesso!');
-
-      console.log(this.purchaseToSend.booksUuid.length)
-
-      this.navigateToPurchases();
-    })
+      });
+      
+      if(this.purchaseToSend.booksUuid.length == 0){
+        this.purchaseService.showError('Pelo menos um livro deve ser comprado!')
+      }else{
+        this.purchaseService.update(this.purchaseToSend).subscribe(()=>{
+          this.purchaseService.showMessage('Compra Atualizada com sucesso!');
+          this.navigateToPurchases();
+          this.purchaseToSend.clientUuid = '';
+          this.purchaseToSend.booksUuid = [];
+        });
+      } 
+    }
   }
+}
 
   cancel(): void{
     this.navigateToPurchases();

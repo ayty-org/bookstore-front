@@ -19,7 +19,17 @@ export class PurchaseService {
     this.snackBar.open(msg, 'X',{
       duration: 3000,
       horizontalPosition: "right",
-      verticalPosition: "top"
+      verticalPosition: "top",
+      panelClass: ['msg-success']
+    });
+  }
+
+  showError(msg: string){
+    this.snackBar.open(msg, 'X',{
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+      panelClass: ['msg-error']
     });
   }
 
@@ -42,4 +52,6 @@ export class PurchaseService {
   delete(uuid: string): Observable<Purchase>{
     return this.http.delete<Purchase>(`${this.url}/${uuid}`);
   }
+
+  
 }
