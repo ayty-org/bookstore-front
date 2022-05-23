@@ -43,7 +43,7 @@ export class ClientCreateComponent implements OnInit {
   fieldsAreCorrect(): boolean{
     var name: string = this.client.name;
     if(name == '' || name.length < 3 || name.length > 40){
-      this.clientService.showError('O campo nome não pode ser nulo e deve conter entre 3 e 40 caracteres!');
+      this.clientService.showError('O campo nome não pode estar vazio e deve conter entre 3 e 40 caracteres!');
       return false;
     }
     var age = this.client.age;

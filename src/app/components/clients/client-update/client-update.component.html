@@ -2,23 +2,23 @@
     <mat-card-title>Atualizar Cliente</mat-card-title>
     <form>
         <mat-form-field>
-            <input matInput placeholder="Nome" 
+            <input matInput placeholder="Nome" required
                 [(ngModel)]="client.name" name="name">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Idade"
+            <input matInput placeholder="Idade" required
                 [(ngModel)]="client.age" name="age" type="number">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Telefone"
+            <input matInput placeholder="Telefone" required
                 [(ngModel)]="client.telephone" name="telephone">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="E-mail"
+            <input matInput placeholder="E-mail" required
                 [(ngModel)]="client.email" name="email">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Gênero"
+            <input matInput placeholder="Gênero" required
                 [(ngModel)]="client.gender" name="gender">
         </mat-form-field>
         

@@ -3,32 +3,32 @@
     <mat-card-title>Atualizar Livro</mat-card-title>
     <form>
         <mat-form-field>
-            <input matInput placeholder="Título" 
-                [(ngModel)]="book.title" name="title">
+            <input matInput placeholder="Título" required
+                [(ngModel)]="book.title" name="title"> 
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Sinopse"
+            <input matInput placeholder="Sinopse" required
                 [(ngModel)]="book.synopsis" name="synopsis">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="ISBN"
+            <input matInput placeholder="ISBN" required
                 [(ngModel)]="book.isbn" name="isbn">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Ano de publicação"
+            <input matInput placeholder="Ano de publicação" required
                 [(ngModel)]="book.publicationYear" name="publicationYear" type="date">
 
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Preço"
+            <input matInput placeholder="Preço" required
                 [(ngModel)]="book.price" name="price" type="number">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Quantidade em estoque"
+            <input matInput placeholder="Quantidade em estoque" required
                 [(ngModel)]="book.quantityInStock" name="quantityInStock" type="number">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Nome do autor"
+            <input matInput placeholder="Nome do autor" required
                 [(ngModel)]="book.authorName" name="authorName">
         </mat-form-field>
         <fieldset>

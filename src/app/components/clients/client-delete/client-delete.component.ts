@@ -50,7 +50,7 @@ export class ClientDeleteComponent implements OnInit {
         this.clientService.showError('Existe pelo menos uma compra com esse cliente, não é possível excluir!');
         b = false;
       }
-    })
+    });
     return b;
   }
 }

@@ -34,10 +34,12 @@ export class BookDeleteComponent implements OnInit {
   }
 
   deleteBook(): void{
-    this.bookService.delete(this.book.uuid as string).subscribe(()=>{
-      this.bookService.showMessage('Livro excluído com sucesso!');
-      this.navigateToBooks();
-    })
+    if(this.canBeDeleted()){
+      this.bookService.delete(this.book.uuid as string).subscribe(()=>{
+        this.bookService.showMessage('Livro excluído com sucesso!');
+        this.navigateToBooks();
+      });
+    }
   }
 
   cancel(): void{
@@ -46,6 +48,17 @@ export class BookDeleteComponent implements OnInit {
 
   navigateToBooks():void {
     this.router.navigateByUrl('/books');
+  }
+
+  canBeDeleted(): boolean{
+    var b: boolean = true;
+    this.bookService.existPurchaseWithBook(this.book.uuid as string).subscribe(exists => {
+      if(exists){
+        this.bookService.showError('Este livro está em pelo menos uma compra, não é possível excluir!');
+        b = false;
+      }
+    })
+    return b;
   }
 
 }

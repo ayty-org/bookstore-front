@@ -19,10 +19,19 @@ export class BookService {
     this.snackBar.open(msg, 'X',{
       duration: 3000,
       horizontalPosition: "right",
-      verticalPosition: "top"
-    })
+      verticalPosition: "top",
+      panelClass: ['msg-success']
+    });
   }
 
+  showError(msg: string){
+    this.snackBar.open(msg, 'X',{
+      duration: 3000,
+      horizontalPosition: "right",
+      verticalPosition: "top",
+      panelClass: ['msg-error']
+    });
+  }
 
   create(book: BookToSend): Observable<Book>{
     return this.http.post<Book>(this.url, book);
@@ -42,6 +51,10 @@ export class BookService {
 
   delete(uuid: string): Observable<Book>{
     return this.http.delete<Book>(`${this.url}/${uuid}`);
+  }
+  
+  existPurchaseWithBook(uuid: string): Observable<boolean>{
+    return this.http.get<boolean>('http://localhost:9191/v1/purchases/existByBook/'+uuid);
   }
   
 }
