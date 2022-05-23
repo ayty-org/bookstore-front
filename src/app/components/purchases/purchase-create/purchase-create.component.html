@@ -36,20 +36,16 @@
                     [(ngModel)]="book.title" name="title{{book.uuid}}" disabled=true>
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Sinopse"
-                    [(ngModel)]="book.synopsis" name="synopsis{{book.uuid}}" disabled=true>
-            </mat-form-field>
-            <mat-form-field>
                 <input matInput placeholder="ISBN"
                     [(ngModel)]="book.isbn" name="isbn{{book.uuid}}" disabled=true>
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Ano de publicação"
-                    [(ngModel)]="book.publicationYear" name="publicationYear{{book.uuid}}" type="date" disabled=true>
+                    [(ngModel)]="book.publicationYear" id="publicationYear{{book.uuid}}" name="publicationYear{{book.uuid}}" type="date" disabled=true>
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Preço"
-                    [(ngModel)]="book.price" name="price{{book.uuid}}" type="number" disabled=true>
+                    [(ngModel)]="book.price"  name="price{{book.uuid}}" type="number" disabled=true>
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Quantidade em estoque"
@@ -61,7 +57,9 @@
             </mat-form-field>
             
             <fieldset>
-                <h3>Categorias:</h3>
+                <h3><strong>Sinopse:</strong></h3>
+                <p>{{book.synopsis}}</p>
+                <h3><strong>Categorias:</strong></h3>
                 <div *ngFor="let category of book.categories">
                     <label >{{category.name}}</label>
                 </div>

@@ -31,10 +31,7 @@
                 <input matInput placeholder="Título" disabled="true"
                    id="{{book.uuid}}title">
             </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Sinopse" disabled="true"
-                   id="{{book.uuid}}synopsis">
-            </mat-form-field>
+
             <mat-form-field>
                 <input matInput placeholder="ISBN" disabled="true"
                     id="{{book.uuid}}isbn">
@@ -60,7 +57,9 @@
                     id="{{book.uuid}}quantity" disabled="true" [defaultValue]="1">
             </mat-form-field>
             <fieldset>
-                <h3>Categorias:</h3>
+                <h3><strong>Sinopse:</strong></h3>
+                <p id="{book.uuid}synopsis">{{book.synopsis}}</p>
+                <h3><strong>Categorias:</strong></h3>
                 <div *ngFor="let category of book.categories">
                     <label >{{category.name}}</label>
                 </div>

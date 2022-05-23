@@ -28,7 +28,16 @@ export class PurchaseCreateComponent implements OnInit {
     , private bookService: BookService, private clientService: ClientService) { }
 
   ngOnInit(): void {
-    this.bookService.read().subscribe(books=> this.booksSaved=books);
+    this.bookService.read().subscribe(books=> {
+      this.booksSaved=books;
+      books.forEach(book => {
+        setTimeout(() => {
+          var date: string[] = book.publicationYear.toString().split('T')[0].split('-');
+          var htmlDate: HTMLInputElement = (document.getElementById('publicationYear'+book.uuid) as HTMLInputElement);
+          htmlDate.value = `${date[0]}-${date[1]}-${date[2]}`;
+        }, 1);
+      });
+    });
     this.clientService.read().subscribe(clients=> this.clientsSaved=clients);
   }
 
@@ -51,7 +60,6 @@ export class PurchaseCreateComponent implements OnInit {
         }
       }
     });
-    console.log(this.purchaseToSend)
     this.purchaseService.create(this.purchaseToSend).subscribe(()=>{
       this.purchaseService.showMessage('Compra salva com sucesso!');
       this.navigateToPurchases();

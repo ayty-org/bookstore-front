@@ -40,7 +40,6 @@ export class PurchaseReadUniqueComponent implements OnInit {
           for(var k = 0; k<bookEquals.length; k++){
             if(k == 0){
               (<HTMLInputElement>document.getElementById(book.uuid as string+'title')).value = book.title;
-              (<HTMLInputElement>document.getElementById(book.uuid as string+'synopsis')).value = book.synopsis;
               (<HTMLInputElement>document.getElementById(book.uuid as string+'isbn')).value = book.isbn;
               (<HTMLInputElement>document.getElementById(book.uuid as string+'price')).value = String(book.price);
               (<HTMLInputElement>document.getElementById(book.uuid as string+'quantityInStock')).value = String(book.quantityInStock);
