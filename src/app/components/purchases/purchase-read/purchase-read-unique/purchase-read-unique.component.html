@@ -4,23 +4,23 @@
         <h2> Cliente da compra: </h2>
         <fieldset class="containerEntity">
             <mat-form-field>
-                <input matInput placeholder="Nome" disabled="true"
+                <input matInput placeholder="Nome" readonly="true"
                     [(ngModel)]="purchase.clientDTO.name" name="name">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Idade" disabled="true"
+                <input matInput placeholder="Idade" readonly="true"
                     [(ngModel)]="purchase.clientDTO.age" name="age" type="number">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Telefone" disabled="true"
+                <input matInput placeholder="Telefone" readonly="true"
                     [(ngModel)]="purchase.clientDTO.telephone" name="telephone">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="E-mail" disabled="true"
+                <input matInput placeholder="E-mail" readonly="true"
                     [(ngModel)]="purchase.clientDTO.email" name="email">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Gênero" disabled="true"
+                <input matInput placeholder="Gênero" readonly="true"
                     [(ngModel)]="purchase.clientDTO.gender" name="gender">
             </mat-form-field>
         </fieldset>
@@ -28,33 +28,33 @@
         <h2>Livros comprados:</h2>
         <fieldset *ngFor="let book of purchase.bookDTOS" name= "{{book.uuid}}" class="containerEntity">
             <mat-form-field>
-                <input matInput placeholder="Título" disabled="true"
+                <input matInput placeholder="Título" readonly="true"
                    id="{{book.uuid}}title">
             </mat-form-field>
 
             <mat-form-field>
-                <input matInput placeholder="ISBN" disabled="true"
+                <input matInput placeholder="ISBN" readonly="true"
                     id="{{book.uuid}}isbn">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Ano de publicação" disabled="true"
+                <input matInput placeholder="Ano de publicação" readonly="true"
                     id="{{book.uuid}}date" type="date">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Preço" disabled="true"
+                <input matInput placeholder="Preço" readonly="true"
                     id="{{book.uuid}}price" type="number">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Quantidade em estoque" disabled="true"
+                <input matInput placeholder="Quantidade em estoque" readonly="true"
                     id="{{book.uuid}}quantityInStock" type="number">
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Nome do autor" 
-                    id="{{book.uuid}}authorName" disabled="true">
+                    id="{{book.uuid}}authorName" readonly="true">
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Quantidade Comprada" 
-                    id="{{book.uuid}}quantity" disabled="true" [defaultValue]="1">
+                    id="{{book.uuid}}quantity" readonly="true" [defaultValue]="1">
             </mat-form-field>
             <fieldset>
                 <h3><strong>Sinopse:</strong></h3>

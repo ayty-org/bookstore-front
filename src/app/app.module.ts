@@ -39,6 +39,7 @@ import { PurchaseReadUniqueComponent } from './components/purchases/purchase-rea
 import { ClientDeleteComponent } from './components/clients/client-delete/client-delete.component';
 import { BookDeleteComponent } from './components/books/book-delete/book-delete.component';
 import { PurchaseDeleteComponent } from './components/purchases/purchase-delete/purchase-delete.component';
+import { BookReadUniqueComponent } from './components/books/book-read/book-read-unique/book-read-unique.component';
 
 registerLocaleData(localePt);
 
@@ -66,7 +67,8 @@ registerLocaleData(localePt);
     PurchaseReadUniqueComponent,
     ClientDeleteComponent,
     BookDeleteComponent,
-    PurchaseDeleteComponent
+    PurchaseDeleteComponent,
+    BookReadUniqueComponent
   ],
   imports: [
     BrowserModule,

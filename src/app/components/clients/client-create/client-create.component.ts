@@ -66,10 +66,6 @@ export class ClientCreateComponent implements OnInit {
       this.clientService.showError('O campo gênero não pode estar vazio e deve conter entre 4 e 15 caracteres!');
       return false;
     }
-    
-    
-    
     return true;
   }
-
 }

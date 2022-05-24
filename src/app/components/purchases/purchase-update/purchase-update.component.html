@@ -3,22 +3,22 @@
     <form> 
         <h3> Selecione o cliente: </h3>
         <fieldset *ngFor="let client of clientsSaved" class="containerEntity">
-            <input type="radio" name="radioClients" id="{{client.uuid}}" class="select">
+            <input type="radio" name="radioClients" id="{{client.uuid}}" class="radio">
             <mat-form-field>
                 <input matInput placeholder="Nome" 
-                    [(ngModel)]="client.name" name="name{{client.uuid}}" disabled=true>
+                    [(ngModel)]="client.name" name="name{{client.uuid}}" readonly=true>
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Idade"
-                    [(ngModel)]="client.age" name="age{{client.uuid}}" type="number" disabled=true>
+                    [(ngModel)]="client.age" name="age{{client.uuid}}" type="number" readonly=true>
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Telefone"
-                    [(ngModel)]="client.telephone" name="telephone{{client.uuid}}" disabled=true>
+                    [(ngModel)]="client.telephone" name="telephone{{client.uuid}}" readonly=true>
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="email">
                 <input matInput placeholder="E-mail"
-                    [(ngModel)]="client.email" name="email{{client.uuid}}" disabled=true>
+                    [(ngModel)]="client.email" name="email{{client.uuid}}" readonly=true>
             </mat-form-field>
         </fieldset>
 
@@ -33,27 +33,27 @@
             </div>
             <mat-form-field>
                 <input matInput placeholder="Título" 
-                    [(ngModel)]="book.title" name="title{{book.uuid}}" disabled=true>
+                    [(ngModel)]="book.title" name="title{{book.uuid}}" readonly=true>
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="ISBN"
-                    [(ngModel)]="book.isbn" name="isbn{{book.uuid}}" disabled=true>
+                    [(ngModel)]="book.isbn" name="isbn{{book.uuid}}" readonly=true>
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Ano de publicação"
-                    [(ngModel)]="book.publicationYear" id="{{book.uuid}}date" name="publicationYear{{book.uuid}}" type="date" disabled=true>
+                    [(ngModel)]="book.publicationYear" id="{{book.uuid}}date" name="publicationYear{{book.uuid}}" type="date" readonly=true>
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Preço"
-                    [(ngModel)]="book.price"  name="price{{book.uuid}}" type="number" disabled=true>
+                    [(ngModel)]="book.price"  name="price{{book.uuid}}" type="number" readonly=true>
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Quantidade em estoque"
-                    [(ngModel)]="book.quantityInStock" name="quantityInStock{{book.uuid}}" type="number" disabled=true>
+                    [(ngModel)]="book.quantityInStock" name="quantityInStock{{book.uuid}}" type="number" readonly=true>
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Nome do autor"
-                    [(ngModel)]="book.authorName" name="authorName{{book.uuid}}" disabled=true>
+                    [(ngModel)]="book.authorName" name="authorName{{book.uuid}}" readonly=true>
             </mat-form-field>
             
             <fieldset>

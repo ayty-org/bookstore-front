@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Book } from '../book.model';
 import { BookService } from '../book.service';
 import { BookToSend } from '../bookToSend.model';
 
@@ -28,25 +29,45 @@ export class BookUpdateComponent implements OnInit {
   ngOnInit(): void {
     const uuid: string = this.route.snapshot.paramMap.get('uuid') as string;
     this.bookService.readByUuid(uuid).subscribe(book =>{
-      this.book.uuid = book.uuid as string;
-      this.book.title = book.title;
-      this.book.synopsis = book.synopsis;
-      this.book.isbn = book.isbn;
-      this.book.price = book.price;
-      this.book.quantityInStock = book.quantityInStock;
-      this.book.authorName = book.authorName;
-      var date: string[] = book.publicationYear.toString().split('T')[0].split('-');
-      var htmlDate: HTMLInputElement = (document.getElementsByName('publicationYear')[0] as HTMLInputElement);
-      htmlDate.value = `${date[0]}-${date[1]}-${date[2]}`
-    
+      this.setFields(book);
+      this.showFormatedDate(book);
       book.categories.forEach(category =>{
-        var checkbox: HTMLInputElement = <HTMLInputElement>document.getElementById('category'+String(category.id));
+        var checkbox: HTMLInputElement = <HTMLInputElement>document.getElementById('category'
+          +String(category.id));
         checkbox.checked = true;
       });
     });
   }
 
+  showFormatedDate(book: Book): void {
+    var date: string[] = book.publicationYear.toString().split('T')[0].split('-');
+    var htmlDate: HTMLInputElement = (<HTMLInputElement>document.getElementsByName('publicationYear')[0]);
+    htmlDate.value = `${date[0]}-${date[1]}-${date[2]}`;
+  }
+
+  setFields(book: Book): void{
+    this.book.uuid = book.uuid as string;
+    this.book.title = book.title;
+    this.book.synopsis = book.synopsis;
+    this.book.isbn = book.isbn;
+    this.book.price = book.price;
+    this.book.quantityInStock = book.quantityInStock;
+    this.book.authorName = book.authorName;
+  }
+
   updateBook(): void{
+   this.getYearAndCategoriesFromInputs();
+
+    if(this.fieldsAreCorrect()){
+      this.bookService.update(this.book).subscribe(()=>{
+        this.bookService.showMessage("Livro atualizado com sucesso!");
+        this.book.categories = [];
+        this.navigateToBooks();
+      });
+    }
+  }
+
+  getYearAndCategoriesFromInputs(): void {
     var htmlDate: HTMLInputElement = (document.getElementsByName('publicationYear')[0] as HTMLInputElement);
     this.book.publicationYear = htmlDate.valueAsDate;
 
@@ -56,16 +77,6 @@ export class BookUpdateComponent implements OnInit {
         this.book.categories.push(Number((<HTMLInputElement>input).value));
       }
     });
-
-    if(this.fieldsAreCorrect()){
-      this.bookService.update(this.book).subscribe(()=>{
-        this.bookService.showMessage("Livro atualizado com sucesso!");
-        this.navigateToBooks();
-        this.book.categories = [];
-        this.navigateToBooks();
-      });
-    }
-    
   }
 
   cancel(): void{

@@ -10,7 +10,7 @@ import { BookService } from '../book.service';
 export class BookReadComponent implements OnInit {
 
   books: Book[];
-  displayedColumns = ['title', 'isbn', 'quantityInStock', 'authorName', 'price', 'categories', 'action' ];
+  displayedColumns = ['details','title', 'isbn', 'quantityInStock', 'authorName', 'price', 'categories', 'action' ];
 
   constructor(private bookService: BookService) { }
 

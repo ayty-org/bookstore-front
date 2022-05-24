@@ -63,8 +63,6 @@ export class ClientUpdateComponent implements OnInit {
       this.clientService.showError('O campo email deve conter um email válido!');
       return false;
     }
-    
     return true;
   }
-
 }

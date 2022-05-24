@@ -26,11 +26,15 @@ export class BookDeleteComponent implements OnInit {
   ngOnInit(): void {
     var uuid = this.route.snapshot.paramMap.get('uuid') as string;
     this.bookService.readByUuid(uuid).subscribe(book => {
-      this.book = book
-      var date: string[] = book.publicationYear.toString().split('T')[0].split('-');
-      var htmlDate: HTMLInputElement = (<HTMLInputElement>document.getElementById('date'));
-      htmlDate.value = `${date[0]}-${date[1]}-${date[2]}`
-    })
+      this.book = book;
+      this.showFormatedDate(book);
+    });
+  }
+
+  showFormatedDate(book: Book): void {
+    var date: string[] = book.publicationYear.toString().split('T')[0].split('-');
+    var htmlDate: HTMLInputElement = (<HTMLInputElement>document.getElementById('date'));
+    htmlDate.value = `${date[0]}-${date[1]}-${date[2]}`;
   }
 
   deleteBook(): void{
@@ -60,5 +64,4 @@ export class BookDeleteComponent implements OnInit {
     })
     return b;
   }
-
 }

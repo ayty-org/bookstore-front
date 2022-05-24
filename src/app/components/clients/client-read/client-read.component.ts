@@ -18,7 +18,5 @@ export class ClientReadComponent implements OnInit {
     this.clientService.read().subscribe(clients => {
       this.clients = clients;
     });
-  
   }
-
 }

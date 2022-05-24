@@ -28,17 +28,21 @@ export class PurchaseCreateComponent implements OnInit {
     , private bookService: BookService, private clientService: ClientService) { }
 
   ngOnInit(): void {
+    this.clientService.read().subscribe(clients=> this.clientsSaved=clients);
     this.bookService.read().subscribe(books=> {
       this.booksSaved=books;
-      books.forEach(book => {
-        setTimeout(() => {
-          var date: string[] = book.publicationYear.toString().split('T')[0].split('-');
-          var htmlDate: HTMLInputElement = (document.getElementById('publicationYear'+book.uuid) as HTMLInputElement);
-          htmlDate.value = `${date[0]}-${date[1]}-${date[2]}`;
-        }, 1);
-      });
+      this.showBooksYear(books);
     });
-    this.clientService.read().subscribe(clients=> this.clientsSaved=clients);
+  }
+
+  showBooksYear(books: Book[]): void {
+    books.forEach(book => {
+      setTimeout(() => {
+        var date: string[] = book.publicationYear.toString().split('T')[0].split('-');
+        var htmlDate: HTMLInputElement = <HTMLInputElement>document.getElementById('publicationYear'+book.uuid);
+        htmlDate.value = `${date[0]}-${date[1]}-${date[2]}`;
+      }, 1);
+    });
   }
 
   createPurchase(): void {

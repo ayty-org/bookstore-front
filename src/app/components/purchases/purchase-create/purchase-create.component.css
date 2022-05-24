@@ -1,21 +1,10 @@
+
 button{
     color: white;
     margin-right: 10px;
     margin-top: 20px;
     width: 100px
 }
-button{
-    color: white;
-    margin-right: 10px;
-    margin-top: 20px;
-    width: 100px
-}
-
-.contentButton {
-    display: flex;
-    justify-content: flex-end;
-}
-
 
 .save{
     background-color: #e71837;
@@ -24,27 +13,12 @@ button{
     background-color: #383838
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-}
 
 .contentButton {
     display: flex;
     justify-content: flex-end;
 }
 
-.save{
-    background-color: #e71837;
-}
-
-.cancel{
-    background-color: #383838
-}
-
-.show{
-    background-color: black;
-}
 
 .container{
     display: flex;
@@ -72,3 +46,13 @@ input{
     height: 30px;
 }
 
+.radio{
+    width: 70px;
+    height: 30px;
+}
+.email{
+    width: 100%;
+}
+.space{
+    margin-top: 30px;
+}

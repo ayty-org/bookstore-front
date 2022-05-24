@@ -51,13 +51,11 @@ form{
 }
 input{
     font-size: 20px;
-    font-weight: bold;
 }
 .containerEntity{
     display: flex;
     flex-direction: column;
 }
-
 
 .quantity{
     height: 20px;

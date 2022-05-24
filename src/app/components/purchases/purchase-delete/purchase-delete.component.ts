@@ -37,18 +37,12 @@ export class PurchaseDeleteComponent implements OnInit {
           var bookEquals = document.getElementsByName(book.uuid as string);
           for(var k = 0; k<bookEquals.length; k++){
             if(k == 0){
-              (<HTMLInputElement>document.getElementById(book.uuid as string+'title')).value = book.title;
-              (<HTMLInputElement>document.getElementById(book.uuid as string+'synopsis')).value = book.synopsis;
-              (<HTMLInputElement>document.getElementById(book.uuid as string+'isbn')).value = book.isbn;
-              (<HTMLInputElement>document.getElementById(book.uuid as string+'price')).value = String(book.price);
-              (<HTMLInputElement>document.getElementById(book.uuid as string+'quantityInStock')).value = String(book.quantityInStock);
-              (<HTMLInputElement>document.getElementById(book.uuid as string+'authorName')).value = book.authorName;
               var date: string[] = book.publicationYear.toString().split('T')[0].split('-');
               var htmlDate: HTMLInputElement = (<HTMLInputElement>document.getElementById(book.uuid as string+'date'));
               htmlDate.value = `${date[0]}-${date[1]}-${date[2]}`
             }else{
               (<HTMLInputElement>document.getElementById('form')).removeChild(bookEquals[k]);
-              var quantity =(<HTMLInputElement>document.getElementById(book.uuid as string+'quantity'));
+              var quantity =(<HTMLInputElement>document.getElementById(book.uuid as string+'date'));
               quantity.value = `${(Number(quantity.value)+1)}`;
             }
           }
