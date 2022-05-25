@@ -40,6 +40,12 @@ import { ClientDeleteComponent } from './components/clients/client-delete/client
 import { BookDeleteComponent } from './components/books/book-delete/book-delete.component';
 import { PurchaseDeleteComponent } from './components/purchases/purchase-delete/purchase-delete.component';
 import { BookReadUniqueComponent } from './components/books/book-read/book-read-unique/book-read-unique.component';
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+
+
+
+
 
 registerLocaleData(localePt);
 
@@ -84,7 +90,9 @@ registerLocaleData(localePt);
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [{

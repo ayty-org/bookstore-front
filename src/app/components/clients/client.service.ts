@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar }   from '@angular/material/snack-bar'
 import { Observable } from 'rxjs';
+import { QueryBuilder } from '../Pagination';
 import { Client } from './client.model';
 
 @Injectable({
@@ -37,8 +38,13 @@ export class ClientService {
     return this.http.post<Client>(this.url, client);
   }
 
+  readWithPagination(page: number, size: number): Observable<Client[]>{
+    return this.http.get<Client[]>(this.url+`?page=${page}&size=${size}&sort=name`);
+
+  }
   read(): Observable<Client[]>{
     return this.http.get<Client[]>(this.url);
+
   }
 
   readByUuid(uuid: string): Observable<Client>{
@@ -55,5 +61,9 @@ export class ClientService {
 
   existPurchaseWithClient(uuid: string): Observable<boolean>{
     return this.http.get<boolean>('http://localhost:9191/v1/purchases/existByClient/'+uuid);
+  }
+
+  getTotalElements(): Observable<number>{
+    return this.http.get<number>(this.url+'/elements/total');
   }
 }

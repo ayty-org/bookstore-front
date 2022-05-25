@@ -39,7 +39,7 @@ export class PurchaseUpdateComponent implements OnInit {
           });
           },1);
         });
-        this.clientService.read().subscribe(clients=> this.clientsSaved=clients);
+        //this.clientService.read().subscribe(clients=> this.clientsSaved=clients);
   
         const uuid: string = this.route.snapshot.paramMap.get('uuid') as string;
         this.purchaseService.readByUuid(uuid).subscribe(purchase => {

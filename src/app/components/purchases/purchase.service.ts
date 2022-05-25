@@ -38,7 +38,7 @@ export class PurchaseService {
   }
 
   read(): Observable<Purchase[]>{
-    return this.http.get<Purchase[]>(this.url);
+    return this.http.get<Purchase[]>(this.url+"?page=0&size=5&sort=purchaseDate");
   }
 
   readByUuid(uuid: string): Observable<Purchase>{
