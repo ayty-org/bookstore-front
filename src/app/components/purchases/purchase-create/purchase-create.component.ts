@@ -31,18 +31,11 @@ export class PurchaseCreateComponent implements OnInit {
     this.clientService.read().subscribe(clients=> this.clientsSaved=clients);
     this.bookService.read().subscribe(books=> {
       this.booksSaved=books;
-      this.showBooksYear(books);
     });
   }
 
-  showBooksYear(books: Book[]): void {
-    books.forEach(book => {
-      setTimeout(() => {
-        var date: string[] = book.publicationYear.toString().split('T')[0].split('-');
-        var htmlDate: HTMLInputElement = <HTMLInputElement>document.getElementById('publicationYear'+book.uuid);
-        htmlDate.value = `${date[0]}-${date[1]}-${date[2]}`;
-      }, 1);
-    });
+  convertDate(date: Date): string {
+    return date.toString().split('T')[0];
   }
 
   createPurchase(): void {

@@ -1,9 +1,4 @@
-button{
-    color: white;
-    margin-right: 10px;
-    margin-top: 20px;
-    width: 100px
-}
+
 button{
     color: white;
     margin-right: 10px;
@@ -74,7 +69,14 @@ input{
 .email{
     width: 100%;
 }
+.title{
+    width: 100%;
+}
 .radio{
     width: 70px;
     height: 30px;
+}
+.books{
+    display: flex;
+    flex-direction: column;
 }

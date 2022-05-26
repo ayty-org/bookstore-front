@@ -41,7 +41,7 @@
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Ano de publicação"
-                    [(ngModel)]="book.publicationYear" id="publicationYear{{book.uuid}}" name="publicationYear{{book.uuid}}" 
+                    [value]="convertDate(book.publicationYear)" id="publicationYear{{book.uuid}}" name="publicationYear{{book.uuid}}" 
                     type="date" readonly=true>
             </mat-form-field>
             <mat-form-field>

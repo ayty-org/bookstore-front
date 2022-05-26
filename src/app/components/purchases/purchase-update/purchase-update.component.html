@@ -3,7 +3,10 @@
     <form> 
         <h3> Selecione o cliente: </h3>
         <fieldset *ngFor="let client of clientsSaved" class="containerEntity">
-            <input type="radio" name="radioClients" id="{{client.uuid}}" class="radio">
+            <input *ngIf="client.uuid != purchaseToSend.clientUuid" type="radio" name="radioClients" 
+                id="{{client.uuid}}" class="radio">
+            <input *ngIf="client.uuid == purchaseToSend.clientUuid" type="radio" name="radioClients" 
+                id="{{client.uuid}}" class="radio" checked="true">
             <mat-form-field>
                 <input matInput placeholder="Nome" 
                     [(ngModel)]="client.name" name="name{{client.uuid}}" readonly=true>
@@ -25,10 +28,16 @@
         <h3>Selecione os livros comprados:</h3>
         <fieldset *ngFor="let book of booksSaved" name= "{{book.uuid}}">
             <div>
-                <input type="checkbox" name="bookCheckbox" class="select" id="{{book.uuid}}">
+                <input *ngIf="hasBookandQuantity(book)[0]" type="checkbox" name="bookCheckbox" 
+                    class="select" id="{{book.uuid}}" checked="true">
+                <input *ngIf="!hasBookandQuantity(book)[0]" type="checkbox" name="bookCheckbox" 
+                    class="select" id="{{book.uuid}}">
+
                 <mat-form-field class="quantity">
-                    <input matInput placeholder="Quantidade:" type="number"
-                        name="quantity{{book.uuid}}" id="quantity{{book.uuid}}" [defaultValue]="1">
+                    <input *ngIf="hasBookandQuantity(book)[1]>1" matInput placeholder="Quantidade:" type="number"
+                        name="quantity{{book.uuid}}" id="quantity{{book.uuid}}" [value]="hasBookandQuantity(book)[1]">
+                    <input *ngIf="hasBookandQuantity(book)[1]==1" matInput placeholder="Quantidade:" type="number"
+                        name="quantity{{book.uuid}}" id="quantity{{book.uuid}}" [value]="1">
                 </mat-form-field>
             </div>
             <mat-form-field>
@@ -41,7 +50,7 @@
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Ano de publicação"
-                    [(ngModel)]="book.publicationYear" id="{{book.uuid}}date" name="publicationYear{{book.uuid}}" type="date" readonly=true>
+                    [value]="convertDate(book.publicationYear)" id="{{book.uuid}}date" name="publicationYear{{book.uuid}}" type="date" readonly=true>
             </mat-form-field>
             <mat-form-field>
                 <input matInput placeholder="Preço"
