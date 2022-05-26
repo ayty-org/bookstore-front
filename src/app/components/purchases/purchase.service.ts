@@ -37,9 +37,11 @@ export class PurchaseService {
     return this.http.post<Purchase>(this.url, purchase);
   }
 
-  read(): Observable<Purchase[]>{
-    return this.http.get<Purchase[]>(this.url+"?page=0&size=5&sort=purchaseDate");
+  read(page: number, size: number): Observable<Purchase[]>{
+    return this.http.get<Purchase[]>(this.url+`?page=${page}&size=${size}&sort=purchaseDate`);
+
   }
+
 
   readByUuid(uuid: string): Observable<Purchase>{
     return this.http.get<Purchase>(`${this.url}/${uuid}`);
@@ -53,5 +55,7 @@ export class PurchaseService {
     return this.http.delete<Purchase>(`${this.url}/${uuid}`);
   }
 
-  
+  getTotalElements(): Observable<number>{
+    return this.http.get<number>(this.url+'/elements/total');
+  }
 }

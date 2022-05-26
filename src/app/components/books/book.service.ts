@@ -33,6 +33,11 @@ export class BookService {
     });
   }
 
+  readWithPagination(page: number, size: number): Observable<Book[]>{
+    return this.http.get<Book[]>(this.url+`?page=${page}&size=${size}&sort=title`);
+
+  }
+
   create(book: BookToSend): Observable<Book>{
     return this.http.post<Book>(this.url, book);
   }
@@ -55,6 +60,10 @@ export class BookService {
   
   existPurchaseWithBook(uuid: string): Observable<boolean>{
     return this.http.get<boolean>('http://localhost:9191/v1/purchases/existByBook/'+uuid);
+  }
+
+  getTotalElements(): Observable<number>{
+    return this.http.get<number>(this.url+'/elements/total');
   }
   
 }

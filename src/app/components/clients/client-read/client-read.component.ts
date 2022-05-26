@@ -16,7 +16,6 @@ export class ClientReadComponent implements OnInit {
 
   pageEvent: PageEvent;
   totalElements: number;
-  loading = false;
 
   constructor(private clientService: ClientService) { }
 
