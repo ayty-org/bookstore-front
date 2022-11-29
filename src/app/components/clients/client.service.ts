@@ -2,15 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar }   from '@angular/material/snack-bar'
 import { Observable } from 'rxjs';
-import { QueryBuilder } from '../Pagination';
-import { Client } from './client.model';
+import { Client, ClientRequest } from './client.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
 
-  private url: string = 'http://localhost:9191/v1/clients';
+  private url: string = 'http://localhost:8080/api/clients';
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient)  { }
 
@@ -34,7 +33,7 @@ export class ClientService {
   }
 
 
-  create(client: Client): Observable<Client>{
+  create(client: ClientRequest): Observable<Client>{
     return this.http.post<Client>(this.url, client);
   }
 

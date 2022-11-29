@@ -9,7 +9,10 @@ import { PurchaseService } from '../purchase.service';
   styleUrls: ['./purchase-delete.component.css']
 })
 export class PurchaseDeleteComponent implements OnInit {
-
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+/*
   purchase: Purchase = {
     clientDTO: {
       name: '', 
@@ -65,5 +68,5 @@ export class PurchaseDeleteComponent implements OnInit {
   navigateToPurchases(): void{
     this.router.navigateByUrl('/purchases');
   }
-
+*/
 }

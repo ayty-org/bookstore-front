@@ -7,21 +7,8 @@
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="Idade" required
-                [(ngModel)]="client.age" name="age" type="number">
+                [(ngModel)]="client.age" name="age">
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Telefone" required
-                [(ngModel)]="client.telephone" name="telephone">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="E-mail" required
-                [(ngModel)]="client.email" name="email">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Gênero" required
-                [(ngModel)]="client.gender" name="gender">
-        </mat-form-field>
-        
     </form>
     <div class="contentButton">
         <button mat-raised-button (click)="createClient()" class="save">
