@@ -13,10 +13,6 @@ import { PurchaseToSend } from '../purchaseToSend.model';
   styleUrls: ['./purchase-update.component.css']
 })
 export class PurchaseUpdateComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-/*
 
   purchaseToSend: PurchaseToSend = {
     clientUuid: '',
@@ -122,5 +118,5 @@ export class PurchaseUpdateComponent implements OnInit {
   navigateToPurchases(): void{
     this.router.navigateByUrl('/purchases');
   }
-*/
+
 }

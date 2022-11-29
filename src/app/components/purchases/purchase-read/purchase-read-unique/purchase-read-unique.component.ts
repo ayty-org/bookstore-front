@@ -3,17 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Purchase } from '../../purchase.model';
 import { PurchaseService } from '../../purchase.service';
+
 @Component({
   selector: 'app-purchase-read-unique',
   templateUrl: './purchase-read-unique.component.html',
   styleUrls: ['./purchase-read-unique.component.css']
 })
-
 export class PurchaseReadUniqueComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-/*
 
   purchase: Purchase = {
     clientDTO: {
@@ -65,5 +61,5 @@ export class PurchaseReadUniqueComponent implements OnInit {
   backToPurchases(): void{
     this.router.navigateByUrl('/purchases');
   }
-*/
+
 }
