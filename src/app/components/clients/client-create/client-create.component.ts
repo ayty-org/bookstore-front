@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Client } from '../client.model';
+import { ClientRequest } from '../client.model';
 import { ClientService } from '../client.service';
 
 @Component({
@@ -10,12 +10,9 @@ import { ClientService } from '../client.service';
 })
 export class ClientCreateComponent implements OnInit {
 
-  client: Client = {
+  client: ClientRequest = {
     name: '', 
     age: null,
-    telephone: '',
-    email: '',
-    gender: ''
   };
 
   constructor(private router: Router, private clientService: ClientService) { }
@@ -49,21 +46,6 @@ export class ClientCreateComponent implements OnInit {
     var age = this.client.age;
     if(age == null || age < 1 || age > 120){
       this.clientService.showError('O campo idade deve conter um número inteiro entre 1 e 120');
-      return false;
-    }
-    var telephone: string = this.client.telephone;
-    if(telephone.length != 11){
-      this.clientService.showError('O campo telefone deve conter 11 dígitos');
-      return false;
-    }
-    var email: string = this.client.email;
-    if(email == '' || email.search('@') < 0 || email.search('.') < 0 || email.indexOf('@') == 0 || email.split('@')[1].length < 5) {
-      this.clientService.showError('O campo email deve conter um email válido!');
-      return false;
-    }
-    var gender: string = this.client.gender;
-    if(gender == '' || gender.length < 4 || gender.length > 15){
-      this.clientService.showError('O campo gênero não pode estar vazio e deve conter entre 4 e 15 caracteres!');
       return false;
     }
     return true;
