@@ -13,10 +13,9 @@ export class ClientDeleteComponent implements OnInit {
   client: Client = {
     name: '', 
     age: null,
-    status: '',
-    score: 0,
-    scheduledAppointments: [],
-    appointmentsConcluded: []
+    telephone: '',
+    email: '',
+    gender: ''
   };
 
   constructor(private router: Router, private clientService: ClientService, private route: ActivatedRoute) { }

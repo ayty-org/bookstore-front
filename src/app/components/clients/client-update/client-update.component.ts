@@ -13,10 +13,9 @@ export class ClientUpdateComponent implements OnInit {
   client: Client = {
     name: '', 
     age: null,
-    status: '',
-    score: 0,
-    scheduledAppointments: [],
-    appointmentsConcluded: []
+    telephone: '',
+    email: '',
+    gender: ''
   };
 
   constructor(private router: Router, private clientService: ClientService, private route: ActivatedRoute) { }
@@ -54,6 +53,16 @@ export class ClientUpdateComponent implements OnInit {
       this.clientService.showError('O campo idade deve conter um número inteiro entre 1 e 120');
       return false;
     }
-     return true;
+    var telephone: string = this.client.telephone;
+    if(telephone.length != 11){
+      this.clientService.showError('O campo telefone deve conter 11 dígitos');
+      return false;
+    }
+    var email: string = this.client.email;
+    if(email == '' || email.search('@') < 0 || email.search('.com') < 0 || email.indexOf('@') == 0 || email.split('@')[1].length < 5) {
+      this.clientService.showError('O campo email deve conter um email válido!');
+      return false;
+    }
+    return true;
   }
 }
